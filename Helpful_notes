@@ -1,0 +1,78 @@
+sra = sequence read archive format
+--need to do fastq-dump to convert to fastq
+--run: $fastq -dump <file> 
+--need to see if raw dataset has adapters used for sequencing
+--$fastq-dump <filename> --split-files
+run through cutadapt to remove adapters (like pcr primers)
+then trim-o-matic to trim ends
+
+chmod 777 - change permissions to public
+chmod 744 - change permissions to private
+
+$grep <string> <filename>
+in order to search a document for a particular string
+
+  ////////////////
+ //git commands//
+////////////////
+
+*It's not uncommon to see a dollar sign character to indicate a single command. 
+
+*If your local repository is not up-to-date with the global repository, you will likely have trouble pushing/pulling. Be sure to check git status (to make sure you're not ahead/behind locally) and pull (make sure the repo hasn't updated) to stay up-to-date.
+
+/////////////////////
+/////git status/////
+-- see if your local files are ahead of the remote branch. If it says you're ahead, add your files and commit+push them.
+
+	$git status
+
+
+//////////////////
+/////git add/////
+-- add files to a batch that you want to upload to the remote repository. You must do this before committing!***
+-- use git add . to add all files that you have edited
+
+	$git add .
+
+-- use git add <filename> to add a single file
+ 
+	$git add <filename>
+
+
+/////////////////////
+/////git commit/////
+-- adds your added changes to the active branch. Use -m "message" in order to describe the changes you've made. This is only a local commit; in order for everyone else to see, you need to push to the global repository!***
+
+	$git commit -m "I added some additional data"
+
+///////////////////
+/////git push/////
+-- updates global repository
+--if you never change what branch you are working on, it will update the main "master" branch
+--you will likely be prompted for your username and password upon pushing. Once you provide them, it will tell you if the push was successful or not
+
+--if the push was not successful, take note as to WHY:
+-----was it because your local repository is behind the master branch?
+---------if so, either: 1) commit your changes to a new branch, 2) update files on GitHub's website and commit, then in your local repo stash your changes and pull ($git stash, $git pull)
+
+-----was it because of a permission error?
+---------check your config file
+-----else, Google is your friend.
+
+	$git push
+
+///////////////////
+/////git pull///// 
+-- pulls the current active branch down to your local repository
+
+	$git pull
+
+
+/////////////////////
+/////git branch/////
+--change what branch you're currently working on. Often used when multiple people are working on different things at the same time and committing frequently
+
+  $git branch <branchname>
+  
+ --see what branches are in this repository
+  $git brach -v -a
